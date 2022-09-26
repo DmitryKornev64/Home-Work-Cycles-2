@@ -8,27 +8,25 @@ public class Main {
         System.out.println("   ДЗ 1.");
         // Задание - 1.
         System.out.println("   Задание - 1.");
-        int moneyPerMonth1 = 15_000;
-        int accumulation1 = 0;
-        int o = 0;
-        while (accumulation1 < 2_459_000) {
-            o++;
-            accumulation1 = accumulation1 + accumulation1 / 100;
-            accumulation1 = accumulation1 + moneyPerMonth1;
-            System.out.println("Месяц " + o + " сумма накоплений равна " + accumulation1 + " рублей");
+        int moneyPerMonth = 15_000;
+        int accumulation = 0;
+        int months = 1;
+        while (accumulation < 2_459_000) {
+            months++;
+            accumulation += moneyPerMonth + accumulation * 0.01;
+            System.out.println("Месяц " + months + " сумма накоплений равна " + accumulation + " рублей");
         }
 
 
         // Задание - 2.
         System.out.println("   Задание - 2.");
-        int q = 0;
-        while (q < 10){
-            q++;
+        int q = 1;
+        while (q <= 10) {
             System.out.print(q + " ");
+            q++;
         }
         System.out.println();
-        int i = 10;
-        for (; i >= 1 ; i--){
+        for (int i = 10; i >= 1; i--) {
             System.out.print(i + " ");
         }
         System.out.println();
@@ -36,13 +34,12 @@ public class Main {
         // Задание - 3.
         System.out.println("   Задание - 3.");
         int population = 12_000_000;
-        int birthrate = 17;
-        int mortality = 8;
+        float birthrate = (float) 17 / 1000;
+        float mortality = (float) 8 / 1000;
         int w = 0;
         while (w < 10) {
-            population += population * (birthrate - mortality) / 1000;
+            population = population + Math.round(population * birthrate) - Math.round(population * mortality);
             w++;
-            population++;
             System.out.println("Год " + w + " численность населения составляет " + population);
         }
 
@@ -52,48 +49,48 @@ public class Main {
         System.out.println("   ДЗ 2.");
         // Задание - 1.
         System.out.println("   Задание - 1.");
+        int month = 1;
         int contribution = 15_000;
-        int v = 0;
         while (contribution < 12_000_000) {
-            contribution = contribution + contribution/100*7;
-            v++;
-            System.out.println("Месяц " + v + " сумма накоплений равна " + contribution + " рублей.");
+            contribution += contribution * 0.07;
+            month++;
+            System.out.println("Месяц " + month + " сумма накоплений равна " + contribution + " рублей.");
         }
 
 
         // Задание - 2.
         System.out.println("   Задание - 2.");
-        int contribution1 = 15_000;
-        int v1 = 0;
-        while (contribution1 < 12_000_000) {
-            contribution1 = contribution1 + contribution1/100*7;
-            v1++;
-            if (v1 % 6 == 0) {
-                System.out.println("Месяц " + v1 + " сумма накоплений равна " + contribution1 + " рублей.");
-
+        int halfYear = 1;
+        int cash = 15_000;
+        while (cash < 12_000_000) {
+            cash += cash * 0.07;
+            if (halfYear % 6 == 0) {
+                System.out.println("Месяц " + halfYear + " сумма накоплений равна " + cash + " рублей.");
             }
+            halfYear++;
         }
 
 
         // Задание - 3.
         System.out.println("   Задание - 3.");
-        int contribution2 = 15_000;
-        int v2 = 0;
-        while (v2 < 108){
-            contribution2 = contribution2 + contribution2/100*7;
-            v2++;
-            if (v2 % 6 == 0) {
-                System.out.println("Месяц " + v2 + " сумма накоплений равна " + contribution2 + " рублей.");
+        int sixMonths = 1;
+        int finances = 15_000;
+        while (sixMonths < 9 * 12) {
+            finances += finances * 0.07;
+            if (sixMonths % 6 == 0) {
+                System.out.println("Месяц " + sixMonths + " сумма накоплений равна " + finances + " рублей.");
             }
+            sixMonths++;
         }
 
 
         // Задание - 4.
         System.out.println("   Задание - 4.");
-        int Friday = 7;
-        while (Friday <= 31){
-            Friday = Friday + 7;
-            System.out.println("Сегодня пятница, "+ Friday +"-е число. Необходимо подготовить отчет.");
+        int lastDayOfTheMonth = 31;
+        int Friday = 5;
+        while (Friday <= lastDayOfTheMonth) {
+            System.out.println("Сегодня пятница, " + Friday + "-е число. Необходимо подготовить отчет.");
+            Friday += 7;
         }
 
 
@@ -102,21 +99,19 @@ public class Main {
         System.out.println("   ДЗ 3.");
         // Задание - 1.
         System.out.println("   Задание - 1.");
-        int year = 1817;
-        int cometFlybyYear = 79;
         int nowadays = 2022;
-        while (year < nowadays) {
-            year = year + cometFlybyYear;
-            System.out.println(year);
+        int year = nowadays - 200;
+        int future = nowadays + 100;
+        for (int i = year; i <= future; i++){
+            if (i % 79 ==0){
+                System.out.println(i);
+            }
         }
-
 
         // Задание - 2.
         System.out.println("   Задание - 2.");
-        int factor = 0;
-        while (factor < 10){
-          factor++;
-            System.out.println("2 * " + factor + " = " + factor * 2);
+        for (int factor = 1; factor <= 10; factor++) {
+            System.out.println("2 * " + factor + " = " + 2 * factor);
         }
     }
 }
